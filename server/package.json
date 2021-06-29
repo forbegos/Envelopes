@@ -12,7 +12,7 @@
     "server": "nodemon server/server.js"
   },
   "keywords": [],
-  "author": "T. A. Lovett",
+  "author": "Ezequiel Hererra, Fernando de Orbegoso, Kevin J. Wesley, Mason Weiner, and Tiffany A. Lovett",
   "license": "MIT",
   "devDependencies": {
     "concurrently": "^5.1.0",

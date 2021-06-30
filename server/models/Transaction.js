@@ -16,6 +16,10 @@ const transactionSchema = new Schema({
     required: true,
     default: true,
   },
+  envelope: {
+    type: Schema.Types.ObjectId,
+    ref: "Envelope",
+  },
 });
 
 const Transaction = model("Transaction", transactionSchema);

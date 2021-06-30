@@ -10,6 +10,12 @@ const envelopeSchema = new Schema({
     required: true,
     default: 0,
   },
+  transaction: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Transaction",
+    },
+  ],
 });
 
 const Envelope = model("Envelope", envelopeSchema);

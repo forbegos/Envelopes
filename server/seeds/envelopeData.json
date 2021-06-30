@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Rent",
+    "envBalance": 1500
+  },
+  {
+    "name": "Internet",
+    "envBalance": 80
+  },
+  {
+    "name": "Groceries",
+    "envBalance": 500
+  },
+  {
+    "name": "Car Payments",
+    "envBalance": 250
+  },
+  {
+    "name": "Gasoline",
+    "envBalance": 50
+  },
+  {
+    "name": "Netflix",
+    "envBalance": 15
+  },
+  {
+    "name": "Utilities",
+    "envBalance": 300
+  },
+  {
+    "name": "Extras",
+    "envBalance": 300
+  },
+  {
+    "name": "Savings",
+    "envBalance": 250
+  }
+]

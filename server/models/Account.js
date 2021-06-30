@@ -12,7 +12,7 @@ const accountSchema = new Schema({
     type: Boolean,
     default: true,
   },
-  amount: {
+  accountBalance: {
     type: Number,
     required: true,
     default: 0,

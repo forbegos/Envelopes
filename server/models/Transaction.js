@@ -5,7 +5,7 @@ const transactionSchema = new Schema({
     type: String,
     required: true,
   },
-  amount: {
+  transAmount: {
     type: Number,
     required: true,
     default: 0,

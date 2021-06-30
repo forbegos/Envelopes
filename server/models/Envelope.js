@@ -5,7 +5,7 @@ const envelopeSchema = new Schema({
     type: String,
     required: true,
   },
-  amount: {
+  envBalance: {
     type: Number,
     required: true,
     default: 0,

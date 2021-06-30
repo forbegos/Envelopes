@@ -11,12 +11,12 @@ const typeDefs = gql`
   type Envelope {
     _id: ID
     name: String
-    envBalance: Number
+    envBalance: Float
   }
 
   type Transaction {
     _id: ID
-    transAmount: Number
+    transAmount: Float
     deposit: Boolean
   }
 
@@ -24,16 +24,19 @@ const typeDefs = gql`
     _id: ID
     name: String
     type: Boolean
-    accountBalance: Number
+    accountBalance: Float
   }
 
   type Query {
     users: [User]
-    account(userId: ID!): User
+    user(userId: ID!): User
+
     envelopes: [Envelope]
+    envelope(envelopeId: ID!): Envelope
+
     transactions: [Transaction]
     transaction(transId: ID!): Transaction
-    envelope(envelopeId: ID!): Envelope
+
     accounts: [Account]
     account(accountId: ID!): Account
   }
@@ -41,15 +44,18 @@ const typeDefs = gql`
   type Mutation {
     addUser(name: String, email: String, password: String): User
     removeUser(userId: ID!): User
-    addEnvelope(name: String, envBalance: Number): Envelope
+
+    addEnvelope(name: String, envBalance: Float): Envelope
     removeEnvelope(envelopeId: ID!): Envelope
+
     addTransaction(
       name: String
-      transAmount: Number
+      transAmount: Float
       deposit: Boolean
     ): Transaction
-    removeTransaction(transId: ID): Transaction
-    addAccount(name: String, type: Boolean, accountBalance: Number): Account
+    removeTransaction(transId: ID!): Transaction
+
+    addAccount(name: String, type: Boolean, accountBalance: Float): Account
     removeAccount(accountId: ID!): Account
   }
 `;

@@ -13,13 +13,11 @@ const resolvers = {
 
     // Envelope queries --------------------------------------
     envelopes: async () => {
-      return await Envelope.find({}).populate("transactions");
+      return await Envelope.find({});
     },
 
     envelope: async (parent, { envelopeId }) => {
-      return await Envelope.findOne({ _id: envelopeId }).populate(
-        "transactions"
-      );
+      return await Envelope.findOne({ _id: envelopeId });
     },
 
     // Account queries --------------------------------------

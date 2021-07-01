@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Card, Modal, Button } from "antd";
+import { Card, Modal, Button, Input } from "antd";
 import "antd/dist/antd.css";
 
 function Cards() {
@@ -33,7 +33,8 @@ function Cards() {
           onOk={handleOk}
           onCancel={handleCancel}
         >
-          <p>Add more here</p>
+          <Input placeholder="Withdrawl Amount" />
+          <Input placeholder="Deposit Amount" />
         </Modal>
       </Card>
     </div>
@@ -46,6 +47,7 @@ const styles = {
     backgroundColor: "#ddd",
     width: "400px",
     opacity: "80%",
+    overflow: "inherit",
   },
 };
 

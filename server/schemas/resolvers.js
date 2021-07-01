@@ -53,10 +53,33 @@ const resolvers = {
 
     // Transaction mutations --------------------------------
 
-    addTransaction: async (parent, { envelopeId, name, amount, type }) => {
+    addEnvelopeTransaction: async (
+      parent,
+      { envelopeId, name, amount, type }
+    ) => {
       console.log(name, amount, type);
       return await Envelope.findOneAndUpdate(
         { _id: envelopeId },
+        {
+          $addToSet: {
+            transactions: {
+              name: name,
+              amount: amount,
+              type: type,
+            },
+          },
+        },
+        { new: true, runValidators: true }
+      );
+    },
+
+    addAccountTransaction: async (
+      parent,
+      { accountId, name, amount, type }
+    ) => {
+      console.log(name, amount, type);
+      return await Account.findOneAndUpdate(
+        { _id: accountId },
         {
           $addToSet: {
             transactions: {

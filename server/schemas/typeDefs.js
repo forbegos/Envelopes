@@ -26,6 +26,7 @@ const typeDefs = gql`
     name: String
     type: Boolean
     accountBalance: Float
+    transactions: [Transaction]
   }
 
   type Query {
@@ -49,12 +50,19 @@ const typeDefs = gql`
     addAccount(name: String, type: Boolean, accountBalance: Float): Account
     removeAccount(accountId: ID!): Account
 
-    addTransaction(
+    addEnvelopeTransaction(
       envelopeId: ID!
       name: String
       amount: Float
       type: Boolean
     ): Envelope
+
+    addAccountTransaction(
+      accountId: ID!
+      name: String
+      amount: Float
+      type: Boolean
+    ): Account
   }
 `;
 

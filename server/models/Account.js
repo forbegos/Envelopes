@@ -17,6 +17,7 @@ const accountSchema = new Schema({
     required: true,
     default: 0,
   },
+  transactions: { type: Array, default: [] },
 });
 
 const Account = model("Account", accountSchema);

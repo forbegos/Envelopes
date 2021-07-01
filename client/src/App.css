@@ -1,0 +1,44 @@
+.code-box-demo {
+  text-align: center;
+}
+
+.header {
+  position: sticky;
+}
+
+.headerMenu {
+  top: 0;
+}
+.headerMenu ul li {
+  margin: 10px;
+  display: inline;
+
+  text-decoration: none;
+}
+
+.sider {
+  width: 160px;
+  /* position: fixed; */
+  /* z-index: 1; */
+
+  padding-top: 20px;
+  color: #fff;
+  line-height: 120px;
+  background: #3ba0e9;
+  opacity: 100%;
+}
+
+.content {
+  /* min-height: 280px; */
+  padding: 30px;
+
+  background: #fff;
+}
+
+.footer {
+  line-height: 1.5;
+}
+
+.cardWrapper {
+  padding: 30px;
+}

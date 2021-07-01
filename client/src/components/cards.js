@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Card, Modal, Button } from "antd";
+import { Card, Modal, Button, Input } from "antd";
 import "antd/dist/antd.css";
 
 function Cards() {
@@ -21,7 +21,7 @@ function Cards() {
 
   return (
     <div className="cardWrapper">
-      <Card title="Envelope Name" bordered={false} style={{ width: 300 }}>
+      <Card title="Envelope Name" bordered={false} style={styles.container}>
         <p>{envelope[0]}</p>
         <p>{envelope[1]} </p>
         <Button type="primary" onClick={showModal}>
@@ -33,11 +33,22 @@ function Cards() {
           onOk={handleOk}
           onCancel={handleCancel}
         >
-          <p>Add more here</p>
+          <Input placeholder="Withdrawl Amount" />
+          <Input placeholder="Deposit Amount" />
         </Modal>
       </Card>
     </div>
   );
 }
+
+const styles = {
+  container: {
+    flex: 1,
+    backgroundColor: "#ddd",
+    width: "400px",
+    opacity: "80%",
+    overflow: "inherit",
+  },
+};
 
 export default Cards;

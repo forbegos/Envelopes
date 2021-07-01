@@ -3,6 +3,7 @@ import { Layout, Menu } from "antd";
 import "antd/dist/antd.css";
 import "./App.css";
 import Cards from "./components/cards";
+import { fixControlledValue } from "antd/lib/input/Input";
 const { Header, Footer, Sider, Content } = Layout;
 const { SubMenu } = Menu;
 function App() {
@@ -11,18 +12,25 @@ function App() {
       <Layout>
         <Header className="header" style={{ textAlign: "right" }}>
           <Menu className="headerMenu" theme="dark" mode="horizontal">
-            <ul>
-              <li>LOGIN</li>
-              <li>LOGOUT</li>
-            </ul>
+            <div className="navLinks">
+              <a href="#signup">Signup</a>
+              <a href="#login">Login</a>
+            </div>
           </Menu>
         </Header>
 
         <Layout>
           <Sider
-            width={200}
+            // width={100}
             className="sider"
-            style={{ minHeight: "100vh", textAlign: "center" }}
+            style={{
+              minHeight: "100vh",
+
+              textAlign: "center",
+              marginLeft: "10px",
+            }}
+            breakpoint="lg"
+            collapsedWidth="0"
           >
             <Menu
               className="siderMenu"
@@ -46,12 +54,11 @@ function App() {
             <Content className="content">
               <Cards />
             </Content>
-
-            <Footer className="footer" style={{ textAlign: "center" }}>
-              FOOTER
-            </Footer>
           </Layout>
         </Layout>
+        <Footer className="footer" style={{ textAlign: "center" }}>
+          FOOTER
+        </Footer>
       </Layout>
     </div>
   );

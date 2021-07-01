@@ -33,10 +33,15 @@
   background: #fff;
 }
 
+.cardWrapper {
+  padding: 30px;
+}
+
 .footer {
   line-height: 1.5;
 }
 
-.cardWrapper {
-  padding: 30px;
-}
+
+
+/* media queries */
+

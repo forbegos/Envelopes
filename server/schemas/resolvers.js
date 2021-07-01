@@ -1,4 +1,4 @@
-const { Account, User, Envelope, Transaction } = require("../models");
+const { Account, User, Envelope } = require("../models");
 
 const resolvers = {
   Query: {
@@ -13,20 +13,13 @@ const resolvers = {
 
     // Envelope queries --------------------------------------
     envelopes: async () => {
-      return await Envelope.find({});
+      return await Envelope.find({}).populate("transactions");
     },
 
     envelope: async (parent, { envelopeId }) => {
-      return await Envelope.findOne({ _id: envelopeId });
-    },
-
-    // Transaction queries --------------------------------------
-    transactions: async () => {
-      return await Transaction.find({});
-    },
-
-    transaction: async (parent, { transId }) => {
-      return await Transaction.findOne({ _id: transId });
+      return await Envelope.findOne({ _id: envelopeId }).populate(
+        "transactions"
+      );
     },
 
     // Account queries --------------------------------------
@@ -52,8 +45,8 @@ const resolvers = {
 
     // Envelope mutations --------------------------------
 
-    addEnvelope: async (parent, args) => {
-      return await Envelope.create(args);
+    addEnvelope: async (parent, { name }) => {
+      return await Envelope.create({ name });
     },
 
     removeEnvelope: async (parent, { envelopeId }) => {
@@ -62,17 +55,26 @@ const resolvers = {
 
     // Transaction mutations --------------------------------
 
-    addTransaction: async (parent, args) => {
-      return await Transaction.create(args);
-    },
-
-    removeTransaction: async (parent, { transId }) => {
-      return await Transaction.findOneAndDelete({ _id: transId });
+    addTransaction: async (parent, { envelopeId, name, amount, type }) => {
+      console.log(name, amount, type);
+      return await Envelope.findOneAndUpdate(
+        { _id: envelopeId },
+        {
+          $addToSet: {
+            transactions: {
+              name: name,
+              amount: amount,
+              type: type,
+            },
+          },
+        },
+        { new: true, runValidators: true }
+      );
     },
 
     // Account mutations --------------------------------
-    addAccount: async (parent, args) => {
-      return await Account.create(args);
+    addAccount: async (parent, { name, type }) => {
+      return await Account.create({ name, type });
     },
     removeAccount: async (parent, { accountId }) => {
       return await Account.findOneAndDelete({ _id: accountId });

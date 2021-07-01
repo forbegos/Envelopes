@@ -8,16 +8,17 @@ const typeDefs = gql`
     password: String
   }
 
+  type Transaction {
+    name: String
+    amount: Float
+    type: Boolean
+  }
+
   type Envelope {
     _id: ID
     name: String
     envBalance: Float
-  }
-
-  type Transaction {
-    _id: ID
-    transAmount: Float
-    deposit: Boolean
+    transactions: [Transaction]
   }
 
   type Account {
@@ -34,9 +35,6 @@ const typeDefs = gql`
     envelopes: [Envelope]
     envelope(envelopeId: ID!): Envelope
 
-    transactions: [Transaction]
-    transaction(transId: ID!): Transaction
-
     accounts: [Account]
     account(accountId: ID!): Account
   }
@@ -48,15 +46,15 @@ const typeDefs = gql`
     addEnvelope(name: String, envBalance: Float): Envelope
     removeEnvelope(envelopeId: ID!): Envelope
 
-    addTransaction(
-      name: String
-      transAmount: Float
-      deposit: Boolean
-    ): Transaction
-    removeTransaction(transId: ID!): Transaction
-
     addAccount(name: String, type: Boolean, accountBalance: Float): Account
     removeAccount(accountId: ID!): Account
+
+    addTransaction(
+      envelopeId: ID!
+      name: String
+      amount: Float
+      type: Boolean
+    ): Envelope
   }
 `;
 

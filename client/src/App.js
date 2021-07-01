@@ -11,10 +11,10 @@ function App() {
       <Layout>
         <Header className="header" style={{ textAlign: "right" }}>
           <Menu className="headerMenu" theme="dark" mode="horizontal">
-            <ul>
-              <li>LOGIN</li>
-              <li>LOGOUT</li>
-            </ul>
+            <div className="navLinks">
+              <a href="#signup">Signup</a>
+              <a href="#login">Login</a>
+            </div>
           </Menu>
         </Header>
 

@@ -21,7 +21,7 @@ function Cards() {
 
   return (
     <div className="cardWrapper">
-      <Card title="Envelope Name" bordered={false} style={{ width: 300 }}>
+      <Card title="Envelope Name" bordered={false} style={styles.container}>
         <p>{envelope[0]}</p>
         <p>{envelope[1]} </p>
         <Button type="primary" onClick={showModal}>
@@ -39,5 +39,14 @@ function Cards() {
     </div>
   );
 }
+
+const styles = {
+  container: {
+    flex: 1,
+    backgroundColor: "#ddd",
+    width: "400px",
+    opacity: "80%",
+  },
+};
 
 export default Cards;

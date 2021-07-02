@@ -10,6 +10,11 @@ function Cards() {
   const showModal = () => {
     setIsModalVisible(true);
   };
+  const removeEnv = () => {};
+
+  const handleDeposit = () => {};
+
+  const handleWithdrawl = () => {};
 
   const handleOk = () => {
     setIsModalVisible(false);
@@ -27,14 +32,27 @@ function Cards() {
         <Button type="primary" onClick={showModal}>
           Start Transaction
         </Button>
+        <Button type="primary" onClick={removeEnv}>
+          Remove Envelope
+        </Button>
         <Modal
           title="Transaction"
           visible={isModalVisible}
           onOk={handleOk}
           onCancel={handleCancel}
+          footer={[
+            <Button key="back" onClick={handleCancel}>
+              Return
+            </Button>,
+            <Button key="1" type="primary" value="small" onClick={handleOk}>
+              Deposit
+            </Button>,
+            <Button key="2" type="primary" value="small" onClick={handleOk}>
+              Withdrawl
+            </Button>,
+          ]}
         >
-          <Input placeholder="Withdrawl Amount" />
-          <Input placeholder="Deposit Amount" />
+          <Input placeholder="Transaction Amount" />
         </Modal>
       </Card>
     </div>

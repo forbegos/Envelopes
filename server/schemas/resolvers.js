@@ -42,10 +42,24 @@ const resolvers = {
     },
 
     // Envelope mutations --------------------------------
-
-    addEnvelope: async (parent, { name }) => {
-      return await Envelope.create({ name });
+    addEnvelope: async (parent, { userId, name, envBalance }) => {
+      console.log(name, envBalance);
+      return await User.findOneAndUpdate(
+        { _id: userId },
+        {
+          $addToSet: {
+            envelopes: {
+              name: name,
+              envBalance: envBalance,
+            },
+          },
+        },
+        { new: true, runValidators: true }
+      );
     },
+    // addEnvelope: async (parent, { name }) => {
+    //   return await Envelope.create({ name });
+    // },
 
     removeEnvelope: async (parent, { envelopeId }) => {
       return await Envelope.findOneAndDelete({ _id: envelopeId });

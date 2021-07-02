@@ -8,6 +8,16 @@ export const QUERY_USERS = gql`
       name
       email
       password
+      envelopes {
+        _id
+        name
+        envBalance
+        transactions {
+          name
+          amount
+          type
+        }
+      }
     }
   }
 `;
@@ -20,6 +30,16 @@ export const QUERY_SINGLE_USER = gql`
       name
       email
       password
+      envelopes {
+        _id
+        name
+        envBalance
+        transactions {
+          name
+          amount
+          type
+        }
+      }
     }
   }
 `;

@@ -1,9 +1,12 @@
 import React, { Component } from "react";
+import { useQuery, useMutation } from "@apollo/client";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+// import { useParams, Link } from "react-router-dom";
 // import { Provider } from "react-redux";
 import { Layout, Menu } from "antd";
 import "antd/dist/antd.css";
 import "./App.css";
+import { QUERY_ENVELOPES } from "./utils/queries";
 
 // import store from "./store";
 import Navbar from "./Navbar";
@@ -12,9 +15,13 @@ import Register from "./Register";
 import Login from "./Login";
 import Cards from "./components/cards";
 import { fixControlledValue } from "antd/lib/input/Input";
+import { render } from "react-dom";
 const { Header, Footer, Sider, Content } = Layout;
 const { SubMenu } = Menu;
+
 function App() {
+  const { loading, data } = useQuery(QUERY_ENVELOPES);
+  const envelope = data?.envelopes || [];
   return (
     <Router>
       <div className="App">
@@ -45,19 +52,13 @@ function App() {
               <Menu
                 className="siderMenu"
                 mode="inline"
-                defaultSelectedKeys={["1"]}
-                defaultOpenKeys={["sub1"]}
+                // defaultSelectedKeys={["1"]}
+                // defaultOpenKeys={["sub1"]}
                 style={{ height: "100%", borderRight: "20px" }}
               >
-                <SubMenu key="sub1" title="Envelope1">
-                  <Menu.Item key="1">option1</Menu.Item>
-                </SubMenu>
-                <SubMenu key="sub2" title="Envelope2">
-                  <Menu.Item key="2">option2</Menu.Item>
-                </SubMenu>
-                <SubMenu key="sub3" title="Envelope3">
-                  <Menu.Item key="3">option3</Menu.Item>
-                </SubMenu>
+                {envelope.map((envelope, i) => (
+                  <SubMenu key={i} title={envelope.name}></SubMenu>
+                ))}
               </Menu>
             </Sider>
             <Layout>

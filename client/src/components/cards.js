@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { Card, Modal, Button, Input } from "antd";
+import { useQuery, useMutation } from "@apollo/client";
 import "antd/dist/antd.css";
+import { QUERY_ENVELOPES } from "../utils/queries";
 
 function Cards() {
-  const [envelope, setEnvelope] = useState(["NAME", "BALANCE"]);
+  const { loading, data } = useQuery(QUERY_ENVELOPES);
+  const envelope = data?.envelopes || [];
 
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -20,24 +23,28 @@ function Cards() {
   };
 
   return (
-    <div className="cardWrapper">
-      <Card title="Envelope Name" bordered={false} style={styles.container}>
-        <p>{envelope[0]}</p>
-        <p>{envelope[1]} </p>
-        <Button type="primary" onClick={showModal}>
-          Start Transaction
-        </Button>
-        <Modal
-          title="Transaction"
-          visible={isModalVisible}
-          onOk={handleOk}
-          onCancel={handleCancel}
-        >
-          <Input placeholder="Withdrawl Amount" />
-          <Input placeholder="Deposit Amount" />
-        </Modal>
-      </Card>
-    </div>
+    <>
+      {envelope.map((envelope) => (
+        <div className="cardWrapper">
+          <Card title="Envelope Name" bordered={false} style={styles.container}>
+            <p>{envelope.name}</p>
+            <p>{envelope.envBalance} </p>
+            <Button type="primary" onClick={showModal}>
+              Start Transaction
+            </Button>
+            <Modal
+              title="Transaction"
+              visible={isModalVisible}
+              onOk={handleOk}
+              onCancel={handleCancel}
+            >
+              <Input placeholder="Withdrawl Amount" />
+              <Input placeholder="Deposit Amount" />
+            </Modal>
+          </Card>
+        </div>
+      ))}
+    </>
   );
 }
 

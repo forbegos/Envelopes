@@ -22,8 +22,8 @@ export const REMOVE_USER = gql`
 
 //add an envelope
 export const ADD_ENVELOPE = gql`
-  mutation addEnvelope($name: String!, $envBalance: Float!) {
-    addEnvelope(name: $name, envBalance: $envBalance) {
+  mutation addEnvelope($userId: ID, $name: String!, $envBalance: Float!) {
+    addEnvelope(userId: $userId, name: $name, envBalance: $envBalance) {
       _id
       name
       envBalance

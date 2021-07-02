@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Fernando de Orbegoso",
+    "email": "fernando@mail.com",
+    "password": "pass1234"
+  },
+  {
+    "name": "Ezequiel Herrera",
+    "email": "zeke@mail.com",
+    "password": "pass5678"
+  },
+  {
+    "name": "Tifanny Lovett",
+    "email": "tiffany@mail.com",
+    "password": "pass91011"
+  },
+  {
+    "name": "Mason Weiner",
+    "email": "mason@mail.com",
+    "password": "pass121314"
+  },
+  {
+    "name": "Kevin Wesley",
+    "email": "kevin@mail.com",
+    "password": "pass151617"
+  }
+]

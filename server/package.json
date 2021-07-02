@@ -9,11 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-<<<<<<< HEAD
-  "author": "F. de Orbegoso",
-=======
   "author": "Ezequiel Hererra, Fernando de Orbegoso, Kevin J. Wesley, Mason Weiner, and Tiffany A. Lovett",
->>>>>>> master
   "license": "MIT",
   "dependencies": {
     "apollo-server-express": "^2.11.0",

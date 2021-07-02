@@ -6,6 +6,7 @@ const typeDefs = gql`
     name: String
     email: String
     password: String
+    envelopes: [Envelope]
   }
 
   type Transaction {
@@ -44,7 +45,7 @@ const typeDefs = gql`
     addUser(name: String, email: String, password: String): User
     removeUser(userId: ID!): User
 
-    addEnvelope(name: String, envBalance: Float): Envelope
+    addEnvelope(userId: ID, name: String, envBalance: Float): Envelope
     removeEnvelope(envelopeId: ID!): Envelope
 
     addAccount(name: String, type: Boolean, accountBalance: Float): Account

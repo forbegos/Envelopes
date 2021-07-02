@@ -32,6 +32,7 @@ function Cards() {
         <Button type="primary" onClick={showModal}>
           Start Transaction
         </Button>
+
         <Button type="primary" onClick={removeEnv}>
           Remove Envelope
         </Button>

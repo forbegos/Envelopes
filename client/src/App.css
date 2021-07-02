@@ -1,0 +1,56 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.code-box-demo {
+  text-align: center;
+}
+
+.header {
+  position: sticky;
+}
+
+.headerMenu {
+  top: 0;
+}
+.navLinks a {
+  margin: 10px;
+  display: inline;
+  text-decoration: none;
+}
+.navLinks a:hover {
+  opacity: 20%;
+}
+
+.sider {
+  width: 200px;
+
+  margin-top: 20px;
+  color: #fff;
+  line-height: 120px;
+}
+
+.content {
+  display: flex;
+  padding: 30px;
+  align-items: center;
+  justify-content: center;
+
+  background: #fff;
+}
+
+.cardWrapper {
+  padding: 30px;
+}
+
+.footer {
+  position: sticky;
+  line-height: 1.5;
+}
+
+/* media queries */
+@media only screen and (max-width: 500px) {
+  .sider {
+    width: 100px;
+  }
+}

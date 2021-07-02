@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Chase Checking",
+    "type": true,
+    "accountBalance": 5000
+  },
+  {
+    "name": "Business Checking",
+    "type": true,
+    "accountBalance": 25000
+  },
+  {
+    "name": "Wells Fargo Savings",
+    "type": false,
+    "accountBalance": 15000
+  }
+]

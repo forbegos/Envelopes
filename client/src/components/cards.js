@@ -15,11 +15,11 @@ function Cards() {
   };
   const removeEnv = () => {};
 
-  const handleDeposit = () => {};
+  const handleDeposit = () => {
+    setIsModalVisible(false);
+  };
 
-  const handleWithdrawl = () => {};
-
-  const handleOk = () => {
+  const handleWithdrawal = () => {
     setIsModalVisible(false);
   };
 
@@ -37,20 +37,30 @@ function Cards() {
             <Button type="primary" onClick={showModal}>
               Start Transaction
             </Button>
+            {/* {MODAL  NEED TO ADD FUNCTIONALITY TO DEPOSIT AND WITHDRAWAL} */}
             <Modal
               title="Transaction"
               visible={isModalVisible}
-              onOk={handleOk}
               onCancel={handleCancel}
               footer={[
                 <Button key="back" onClick={handleCancel}>
                   Return
                 </Button>,
-                <Button key="1" type="primary" value="small" onClick={handleOk}>
+                <Button
+                  key="1"
+                  type="primary"
+                  value="small"
+                  onClick={handleDeposit}
+                >
                   Deposit
                 </Button>,
-                <Button key="2" type="primary" value="small" onClick={handleOk}>
-                  Withdrawl
+                <Button
+                  key="2"
+                  type="primary"
+                  value="small"
+                  onClick={handleWithdrawal}
+                >
+                  Withdrawal
                 </Button>,
               ]}
             >

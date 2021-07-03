@@ -1,0 +1,40 @@
+import React, { Component } from "react";
+import { useQuery } from "@apollo/client";
+import { Layout, Menu } from "antd";
+import "antd/dist/antd.css";
+import { QUERY_ENVELOPES } from "../utils/queries";
+// import "./App.css";
+import { render } from "react-dom";
+
+const { Sider } = Layout;
+const { SubMenu } = Menu;
+
+function SideMenu() {
+  const { loading, data } = useQuery(QUERY_ENVELOPES);
+  const envelope = data?.envelopes || [];
+  return (
+    <Sider
+      className="sider"
+      style={{
+        minHeight: "100vh",
+
+        textAlign: "center",
+        marginLeft: "10px",
+      }}
+      breakpoint="lg"
+      collapsedWidth="0"
+    >
+      <Menu
+        className="siderMenu"
+        mode="inline"
+        style={{ height: "100%", borderRight: "20px" }}
+      >
+        {envelope.map((envelope, i) => (
+          <SubMenu key={i} title={envelope.name}></SubMenu>
+        ))}
+      </Menu>
+    </Sider>
+  );
+}
+
+export default SideMenu;

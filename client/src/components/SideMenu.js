@@ -36,7 +36,7 @@ function SideMenu() {
             key={i}
             onClick={""}
             onDeselect={""}
-            style={{ color: "black", borderBottom: "10px" }}
+            style={{ color: "black" }}
           >
             {envelope.name}{" "}
           </Menu.Item>

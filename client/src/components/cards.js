@@ -31,11 +31,21 @@ function Cards() {
     <>
       {envelope.map((envelope) => (
         <div className="cardWrapper">
-          <Card title="Envelope Name" bordered={false} style={styles.container}>
-            <p>{envelope.name}</p>
-            <p>{envelope.envBalance} </p>
-            <Button type="primary" onClick={showModal}>
+          <Card title={envelope.name} bordered={false} style={styles.container}>
+            <p>${envelope.envBalance} </p>
+            <Button
+              type="primary"
+              onClick={showModal}
+              style={{ margin: "10px" }}
+            >
               Start Transaction
+            </Button>
+            <Button
+              type="primary"
+              onClick={removeEnv}
+              style={{ margin: "10px" }}
+            >
+              Remove Envelope
             </Button>
             {/* {MODAL  NEED TO ADD FUNCTIONALITY TO DEPOSIT AND WITHDRAWAL} */}
             <Modal

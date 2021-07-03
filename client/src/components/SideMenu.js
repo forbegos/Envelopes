@@ -2,14 +2,16 @@ import React, { Component } from "react";
 import { useQuery } from "@apollo/client";
 import { Layout, Menu } from "antd";
 import "antd/dist/antd.css";
-import { QUERY_ENVELOPES } from "../utils/queries";
+import { QUERY_ENVELOPES, QUERY_SINGLE_USER } from "../utils/queries";
 // import "./App.css";
 import { render } from "react-dom";
 
 const { Sider } = Layout;
-const { SubMenu } = Menu;
+// const { SubMenu } = Menu;
 
 function SideMenu() {
+  //   const { userData } = useQuery(QUERY_SINGLE_USER);
+  //   const user = data?.singleUser || [];
   const { loading, data } = useQuery(QUERY_ENVELOPES);
   const envelope = data?.envelopes || [];
   return (
@@ -27,10 +29,17 @@ function SideMenu() {
       <Menu
         className="siderMenu"
         mode="inline"
-        style={{ height: "100%", borderRight: "20px" }}
+        style={{ height: "100%", borderRight: "20px", background: "#d8dfe5" }}
       >
         {envelope.map((envelope, i) => (
-          <SubMenu key={i} title={envelope.name}></SubMenu>
+          <Menu.Item
+            key={i}
+            onClick={""}
+            onDeselect={""}
+            style={{ color: "black", borderBottom: "10px" }}
+          >
+            {envelope.name}{" "}
+          </Menu.Item>
         ))}
       </Menu>
     </Sider>

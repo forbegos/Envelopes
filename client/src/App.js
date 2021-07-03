@@ -21,7 +21,6 @@ const { Header, Footer, Sider, Content } = Layout;
 const { SubMenu } = Menu;
 
 function App() {
-  
   return (
     <Router>
       <div className="App">

@@ -47,7 +47,7 @@ const resolvers = {
         throw new AuthenticationError("No user with this email found!");
       }
 
-      const correctPw = await profile.isCorrectPassword(password);
+      const correctPw = await user.isCorrectPassword(password);
 
       if (!correctPw) {
         throw new AuthenticationError("Incorrect password!");
@@ -77,9 +77,10 @@ const resolvers = {
         { new: true, runValidators: true }
       );
     },
-    // addEnvelope: async (parent, { name }) => {
-    //   return await Envelope.create({ name });
-    // },
+
+    addEnvelope: async (parent, { name }) => {
+      return await Envelope.create({ name });
+    },
 
     removeEnvelope: async (parent, { envelopeId }) => {
       return await Envelope.findOneAndDelete({ _id: envelopeId });

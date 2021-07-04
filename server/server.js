@@ -20,8 +20,7 @@ app.use(
   })
 );
 app.use(bodyParser.json());
-// DB Config
-// const db = require("./config/keys").mongoURI;
+// db = require("./config/keys").mongoURI;
 
 mongoose
   .connect(db, { useNewUrlParser: true })

@@ -1,111 +1,102 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
+import { useMutation } from "@apollo/client";
+import { ADD_USER } from "./utils/mutations";
 
+import Auth from "./utils/auth";
 
-class Register extends Component {
-  constructor() {
-    super();
-    this.state = {
-      name: "",
-      email: "",
-      password: "",
-      password2: "",
-      errors: {}
-    };
-  }
-onChange = e => {
-    this.setState({ [e.target.id]: e.target.value });
-  };
-onSubmit = e => {
-    e.preventDefault();
-const newUser = {
-      name: this.state.name,
-      email: this.state.email,
-      password: this.state.password,
-      password2: this.state.password2
-    };
-console.log(newUser);
+const Register = () => {
+  const [formState, setFormState] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+  const [addUser, { error, data }] = useMutation(ADD_USER);
+
+  // update state based on form input changes
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
   };
 
-render() {
-return (
-      <div className="container">
-        <div className="row">
-          <div className="col s8 offset-s2">
-            <Link to="/" className="btn-flat waves-effect">
-              <i className="material-icons left">keyboard_backspace</i> Back to
-              home
-            </Link>
-            <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-              <h4>
-                <b>Register</b> below
-              </h4>
-              <p className="grey-text text-darken-1">
-                Already have an account? <Link to="/login">Log in</Link>
+  // submit form
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    console.log(formState);
+
+    try {
+      const { data } = await addUser({
+        variables: { ...formState },
+      });
+
+      Auth.login(data.addUser.token);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  return (
+    <main className="flex-row justify-center mb-4">
+      <div className="col-12 col-lg-10">
+        <div className="card">
+          <h4 className="card-header bg-dark text-light p-2">Sign Up</h4>
+          <div className="card-body">
+            {data ? (
+              <p>
+                Success! You may now head{" "}
+                <Link to="/">back to the homepage.</Link>
               </p>
-            </div>
-            <form noValidate onSubmit={this.onSubmit}>
-              <div className="input-field col s12">
+            ) : (
+              <form onSubmit={handleFormSubmit}>
                 <input
-                  onChange={this.onChange}
-                  value={this.state.name}
-                  error={this.state.errors.name}
-                  id="name"
+                  className="form-input"
+                  placeholder="Your Name"
+                  name="name"
                   type="text"
+                  value={formState.name}
+                  onChange={handleChange}
                 />
-                <label htmlFor="name">Name</label>
-              </div>
-              <div className="input-field col s12">
                 <input
-                  onChange={this.onChange}
-                  value={this.state.email}
-                  error={this.state.errors.email}
-                  id="email"
+                  className="form-input"
+                  placeholder="Your email"
+                  name="email"
                   type="email"
+                  value={formState.email}
+                  onChange={handleChange}
                 />
-                <label htmlFor="email">Email</label>
-              </div>
-              <div className="input-field col s12">
                 <input
-                  onChange={this.onChange}
-                  value={this.state.password}
-                  error={this.state.errors.password}
-                  id="password"
+                  className="form-input"
+                  placeholder="******"
+                  name="password"
                   type="password"
+                  value={formState.password}
+                  onChange={handleChange}
                 />
-                <label htmlFor="password">Password</label>
-              </div>
-              <div className="input-field col s12">
-                <input
-                  onChange={this.onChange}
-                  value={this.state.password2}
-                  error={this.state.errors.password2}
-                  id="password2"
-                  type="password"
-                />
-                <label htmlFor="password2">Confirm Password</label>
-              </div>
-              <div className="col s12" style={{ paddingLeft: "11.250px" }}>
                 <button
-                  style={{
-                    width: "150px",
-                    borderRadius: "3px",
-                    letterSpacing: "1.5px",
-                    marginTop: "1rem"
-                  }}
+                  className="btn btn-block btn-info"
+                  style={{ cursor: "pointer" }}
                   type="submit"
-                  className="btn btn-large waves-effect waves-light hoverable blue accent-3"
                 >
-                  Sign up
+                  Submit
                 </button>
+              </form>
+            )}
+
+            {error && (
+              <div className="my-3 p-3 bg-danger text-white">
+                {error.message}
               </div>
-            </form>
+            )}
           </div>
         </div>
       </div>
-    );
-  }
-}
+    </main>
+  );
+};
 
 export default Register;

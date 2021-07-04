@@ -27,18 +27,21 @@ function App() {
           <Header className="header" style={{ textAlign: "right" }}>
             <Menu className="headerMenu" theme="dark" mode="horizontal">
               <div className="navLinks">
-                {/* <Route exact path="/" component={Landing} /> */}
-                <Route exact path="/register" component={Register} />
-                <Route exact path="/login" component={Login} />
+                {/* <Route exact path="/" component={SideMenu} /> */}
+                {/* <Route exact path="/register" component={Register} /> */}
               </div>
             </Menu>
           </Header>
 
           <Layout>
-            <SideMenu />
             <Layout>
               <Content className="content">
-                <Envcard />
+                <Route exact path="/login">
+                  <Login />
+                </Route>
+                <Route exact path="/register">
+                  <Register />
+                </Route>
               </Content>
             </Layout>
           </Layout>

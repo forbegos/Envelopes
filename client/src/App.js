@@ -7,7 +7,7 @@ import { Layout, Menu } from "antd";
 import "antd/dist/antd.css";
 import "./App.css";
 import { QUERY_ENVELOPES } from "./utils/queries";
-import Auth from "../src/utils/auth";
+// import Auth from "../src/utils/auth";
 
 // import store from "./store";
 import Navbar from "./Navbar";
@@ -31,7 +31,8 @@ function App() {
           </Header>
 
           <Layout>
-            {Auth.loggedIn() ? <SideMenu /> : <Route exact path="/login" />}
+            {/* {Auth.loggedIn() ? : <Route exact path="/login" />} */}
+            <SideMenu />
 
             <Layout>
               <Content className="content">

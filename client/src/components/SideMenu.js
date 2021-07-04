@@ -5,6 +5,7 @@ import "antd/dist/antd.css";
 import { QUERY_ENVELOPES, QUERY_SINGLE_USER } from "../utils/queries";
 // import "./App.css";
 import { render } from "react-dom";
+// import cards
 
 const { Sider } = Layout;
 // const { SubMenu } = Menu;
@@ -15,7 +16,9 @@ function SideMenu() {
   const { loading, data } = useQuery(QUERY_ENVELOPES);
   const envelope = data?.envelopes || [];
 
-  const getName = () => {}
+  const getName = (name) => {
+
+   
   return (
     <Sider
       className="sider"

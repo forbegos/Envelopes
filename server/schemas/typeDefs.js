@@ -40,9 +40,14 @@ const typeDefs = gql`
     accounts: [Account]
     account(accountId: ID!): Account
   }
+  type Auth {
+    token: ID!
+    user: User
+  }
 
   type Mutation {
-    addUser(name: String, email: String, password: String): User
+    addUser(name: String, email: String, password: String): Auth
+    login(email: String!, password: String!): Auth
     removeUser(userId: ID!): User
 
     addEnvelope(userId: ID, name: String, envBalance: Float): Envelope

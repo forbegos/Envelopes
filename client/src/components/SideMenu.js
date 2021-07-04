@@ -5,7 +5,9 @@ import "antd/dist/antd.css";
 import { QUERY_ENVELOPES, QUERY_SINGLE_USER } from "../utils/queries";
 import Envcard from "./Envcard";
 // import "./App.css";
+
 // import { render } from "react-dom";
+
 
 const { Sider } = Layout;
 // const { SubMenu } = Menu;
@@ -15,6 +17,7 @@ function SideMenu() {
   //   const user = data?.singleUser || [];
   const { loading, data } = useQuery(QUERY_ENVELOPES);
   const envelope = data?.envelopes || [];
+
 
   const handleClick = (event) => () => {
     console.log(event);
@@ -27,6 +30,11 @@ function SideMenu() {
 
     return <Envcard name={name} envBalance={envBalance} />;
   };
+
+
+  
+
+   
 
   return (
     <Sider

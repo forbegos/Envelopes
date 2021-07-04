@@ -1,4 +1,5 @@
 const { Account, User, Envelope } = require("../models");
+const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
@@ -35,6 +36,23 @@ const resolvers = {
 
     addUser: async (parent, args) => {
       return await User.create(args);
+    },
+
+    login: async (parent, { email, password }) => {
+      const user = await User.findOne({ email });
+
+      if (!user) {
+        throw new AuthenticationError("No user with this email found!");
+      }
+
+      const correctPw = await profile.isCorrectPassword(password);
+
+      if (!correctPw) {
+        throw new AuthenticationError("Incorrect password!");
+      }
+
+      const token = signToken(user);
+      return { token, user };
     },
 
     removeUser: async (parent, { userId }) => {

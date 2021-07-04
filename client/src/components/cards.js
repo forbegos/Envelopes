@@ -32,6 +32,7 @@ function Cards() {
       {envelope.map((envelope) => (
         <div className="cardWrapper">
           <Card title={envelope.name} bordered={false} style={styles.container}>
+            <p>{envelope.id}</p>
             <p>${envelope.envBalance} </p>
             <Button
               type="primary"

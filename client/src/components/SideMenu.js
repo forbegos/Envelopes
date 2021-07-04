@@ -14,6 +14,8 @@ function SideMenu() {
   //   const user = data?.singleUser || [];
   const { loading, data } = useQuery(QUERY_ENVELOPES);
   const envelope = data?.envelopes || [];
+
+  const getName = () => {}
   return (
     <Sider
       className="sider"

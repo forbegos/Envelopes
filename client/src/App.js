@@ -7,6 +7,7 @@ import { Layout, Menu } from "antd";
 import "antd/dist/antd.css";
 import "./App.css";
 import { QUERY_ENVELOPES } from "./utils/queries";
+import Auth from "../src/utils/auth";
 
 // import store from "./store";
 import Navbar from "./Navbar";
@@ -15,6 +16,7 @@ import Register from "./Register";
 import Login from "./Login";
 import Envcard from "./components/Envcard";
 import SideMenu from "./components/SideMenu";
+
 import { fixControlledValue } from "antd/lib/input/Input";
 import { render } from "react-dom";
 const { Header, Footer, Content } = Layout;
@@ -25,17 +27,12 @@ function App() {
       <div className="App">
         <Layout>
           <Header className="header" style={{ textAlign: "right" }}>
-            <Menu className="headerMenu" theme="dark" mode="horizontal">
-              <div className="navLinks">
-                {/* <Route exact path="/" component={Landing} /> */}
-                <Route exact path="/register" component={Register} />
-                <Route exact path="/login" component={Login} />
-              </div>
-            </Menu>
+            <Navbar />
           </Header>
 
           <Layout>
-            <SideMenu />
+            {Auth.loggedIn() ? <SideMenu /> : <Route exact path="/login" />}
+
             <Layout>
               <Content className="content">
                 <Route exact path="/login">
@@ -44,12 +41,9 @@ function App() {
                 <Route exact path="/register">
                   <Register />
                 </Route>
-                <Route exact path="/profiles/:profileId">
+                <Route exact path="/user/:userId">
                   <Envcard />
                 </Route>
-                {/* <Envcard /> */}
-                {/* <Login /> */}
-                {/* <Register/> */}
               </Content>
             </Layout>
           </Layout>

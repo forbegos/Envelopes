@@ -3,8 +3,9 @@ import { useQuery } from "@apollo/client";
 import { Layout, Menu } from "antd";
 import "antd/dist/antd.css";
 import { QUERY_ENVELOPES, QUERY_SINGLE_USER } from "../utils/queries";
+import Envcard from "./Envcard";
 // import "./App.css";
-import { render } from "react-dom";
+// import { render } from "react-dom";
 
 const { Sider } = Layout;
 // const { SubMenu } = Menu;
@@ -15,7 +16,18 @@ function SideMenu() {
   const { loading, data } = useQuery(QUERY_ENVELOPES);
   const envelope = data?.envelopes || [];
 
-  const getName = () => {}
+  const handleClick = (event) => () => {
+    console.log(event);
+    const name = event.name;
+    console.log(name);
+    // const id = event.id;
+    // console.log(id);
+    const envBalance = event.envBalance;
+    console.log(envBalance);
+
+    return <Envcard name={name} envBalance={envBalance} />;
+  };
+
   return (
     <Sider
       className="sider"
@@ -36,8 +48,7 @@ function SideMenu() {
         {envelope.map((envelope, i) => (
           <Menu.Item
             key={i}
-            onClick={""}
-            onDeselect={""}
+            onClick={handleClick(envelope)}
             style={{ color: "black" }}
           >
             {envelope.name}{" "}

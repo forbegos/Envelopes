@@ -13,12 +13,11 @@ import Navbar from "./Navbar";
 // import Landing from "./layout/Landing";
 import Register from "./Register";
 import Login from "./Login";
-import Cards from "./components/cards";
+import Envcard from "./components/Envcard";
 import SideMenu from "./components/SideMenu";
 import { fixControlledValue } from "antd/lib/input/Input";
 import { render } from "react-dom";
-const { Header, Footer, Sider, Content } = Layout;
-const { SubMenu } = Menu;
+const { Header, Footer, Content } = Layout;
 
 function App() {
   return (
@@ -39,7 +38,7 @@ function App() {
             <SideMenu />
             <Layout>
               <Content className="content">
-                <Cards />
+                <Envcard />
               </Content>
             </Layout>
           </Layout>

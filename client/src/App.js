@@ -38,7 +38,18 @@ function App() {
             <SideMenu />
             <Layout>
               <Content className="content">
-                <Envcard />
+                <Route exact path="/login">
+                  <Login />
+                </Route>
+                <Route exact path="/register">
+                  <Register />
+                </Route>
+                <Route exact path="/profiles/:profileId">
+                  <Envcard />
+                </Route>
+                {/* <Envcard /> */}
+                {/* <Login /> */}
+                {/* <Register/> */}
               </Content>
             </Layout>
           </Layout>

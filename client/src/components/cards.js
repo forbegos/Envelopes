@@ -13,8 +13,13 @@ function Cards() {
   const showModal = () => {
     setIsModalVisible(true);
   };
+  const removeEnv = () => {};
 
-  const handleOk = () => {
+  const handleDeposit = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleWithdrawal = () => {
     setIsModalVisible(false);
   };
 
@@ -26,20 +31,51 @@ function Cards() {
     <>
       {envelope.map((envelope) => (
         <div className="cardWrapper">
-          <Card title="Envelope Name" bordered={false} style={styles.container}>
-            <p>{envelope.name}</p>
-            <p>{envelope.envBalance} </p>
-            <Button type="primary" onClick={showModal}>
+          <Card title={envelope.name} bordered={false} style={styles.container}>
+            <p>{envelope.id}</p>
+            <p>${envelope.envBalance} </p>
+            <Button
+              type="primary"
+              onClick={showModal}
+              style={{ margin: "10px" }}
+            >
               Start Transaction
             </Button>
+            <Button
+              type="primary"
+              onClick={removeEnv}
+              style={{ margin: "10px" }}
+            >
+              Remove Envelope
+            </Button>
+            {/* {MODAL  NEED TO ADD FUNCTIONALITY TO DEPOSIT AND WITHDRAWAL} */}
             <Modal
               title="Transaction"
               visible={isModalVisible}
-              onOk={handleOk}
               onCancel={handleCancel}
+              footer={[
+                <Button key="back" onClick={handleCancel}>
+                  Return
+                </Button>,
+                <Button
+                  key="1"
+                  type="primary"
+                  value="small"
+                  onClick={handleDeposit}
+                >
+                  Deposit
+                </Button>,
+                <Button
+                  key="2"
+                  type="primary"
+                  value="small"
+                  onClick={handleWithdrawal}
+                >
+                  Withdrawal
+                </Button>,
+              ]}
             >
-              <Input placeholder="Withdrawl Amount" />
-              <Input placeholder="Deposit Amount" />
+              <Input placeholder="Transaction Amount" />
             </Modal>
           </Card>
         </div>

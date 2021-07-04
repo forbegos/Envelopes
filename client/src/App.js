@@ -14,14 +14,13 @@ import Navbar from "./Navbar";
 import Register from "./Register";
 import Login from "./Login";
 import Cards from "./components/cards";
+import SideMenu from "./components/SideMenu";
 import { fixControlledValue } from "antd/lib/input/Input";
 import { render } from "react-dom";
 const { Header, Footer, Sider, Content } = Layout;
 const { SubMenu } = Menu;
 
 function App() {
-  const { loading, data } = useQuery(QUERY_ENVELOPES);
-  const envelope = data?.envelopes || [];
   return (
     <Router>
       <div className="App">
@@ -37,36 +36,14 @@ function App() {
           </Header>
 
           <Layout>
-            <Sider
-              // width={100}
-              className="sider"
-              style={{
-                minHeight: "100vh",
-
-                textAlign: "center",
-                marginLeft: "10px",
-              }}
-              breakpoint="lg"
-              collapsedWidth="0"
-            >
-              <Menu
-                className="siderMenu"
-                mode="inline"
-                // defaultSelectedKeys={["1"]}
-                // defaultOpenKeys={["sub1"]}
-                style={{ height: "100%", borderRight: "20px" }}
-              >
-                {envelope.map((envelope, i) => (
-                  <SubMenu key={i} title={envelope.name}></SubMenu>
-                ))}
-              </Menu>
-            </Sider>
+            <SideMenu />
             <Layout>
               <Content className="content">
                 <Cards />
               </Content>
             </Layout>
           </Layout>
+
           <Footer className="footer" style={{ textAlign: "center" }}>
             FOOTER
           </Footer>

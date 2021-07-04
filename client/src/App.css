@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
 }
+
 .code-box-demo {
   text-align: center;
 }
@@ -24,9 +25,7 @@
 
 .sider {
   width: 200px;
-
   margin-top: 20px;
-  color: #fff;
   line-height: 120px;
 }
 
@@ -36,7 +35,7 @@
   align-items: center;
   justify-content: center;
 
-  background: #fff;
+  background: white;
 }
 
 .cardWrapper {

@@ -6,10 +6,15 @@ import { Layout, Menu } from "antd";
 import "antd/dist/antd.css";
 import "./App.css";
 import Homepage from "./components/Homepage";
-import Register from "./Register";
+import "./Register";
 import Login from "./Login";
-import auth from "./utils/auth";
+
+import Auth from "./utils/auth";
+import Register from "./Register";
+
+
 import Footer1 from "./components/Footer";
+
 
 // import Register from "./Register";
 // import Login from "./Login";
@@ -19,12 +24,34 @@ import Footer1 from "./components/Footer";
 const { Header, Footer } = Layout;
 
 function App() {
+  const logout = (event) => {
+    event.preventDefault();
+    Auth.logout();
+  };
   return (
     <Router>
       <div className="App">
         <Layout>
           <Header className="header" style={{ textAlign: "right" }}>
-            <Menu className="headerMenu" theme="dark" mode="horizontal"></Menu>
+            <Menu className="headerMenu" theme="dark" mode="horizontal">
+              <div className="logoImage">
+                
+              </div>
+              {Auth.loggedIn() ? (
+                <button className="btn btn-lg btn-light m-2" onClick={logout}>
+                  Logout
+                </button>
+              ) : (
+                <>
+                  <Link className="btn btn-lg btn-primary m-2" to="/login">
+                    Login
+                  </Link>
+                  <Link className="btn btn-lg btn-light m-2" to="/register">
+                    Register
+                  </Link>
+                </>
+              )}
+            </Menu>
           </Header>
           <Layout>
             {/* <SideMenu /> */}
@@ -34,6 +61,9 @@ function App() {
               </Route>
               <Route exact path="/login">
                 <Login />
+              </Route>
+              <Route exact path="/register">
+                <Register />
               </Route>
             </Switch>
           </Layout>

@@ -1,9 +1,7 @@
 const express = require("express");
-const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
+// const bodyParser = require("body-parser");
 
 const { ApolloServer } = require("apollo-server-express");
-const path = require("path");
 
 const { typeDefs, resolvers } = require("./schemas");
 const db = require("./config/connection");
@@ -14,18 +12,12 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
 });
-app.use(
-  bodyParser.urlencoded({
-    extended: false,
-  })
-);
-app.use(bodyParser.json());
-// db = require("./config/keys").mongoURI;
-
-mongoose
-  .connect(db, { useNewUrlParser: true })
-  .then(() => console.log("MongoDB successfully connected"))
-  .catch((err) => console.log(err));
+// app.use(
+//   bodyParser.urlencoded({
+//     extended: false,
+//   })
+// );
+// app.use(bodyParser.json());
 
 server.applyMiddleware({ app });
 

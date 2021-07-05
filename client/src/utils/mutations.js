@@ -82,7 +82,7 @@ export const ADD_ENVELOPE_TRANSACTION = gql`
     $type: Boolean!
   ) {
     addEnvelopeTransaction(
-      accountId: $accountId
+      envelopeId: $accountId
       name: $name
       amount: $amount
       type: $type

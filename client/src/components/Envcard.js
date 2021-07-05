@@ -29,6 +29,8 @@ function Envcard(props) {
 
   return (
     <>
+      {/* <p>{props.name}</p>
+      <p>{props.envBalance}</p> */}
       <div className="cardWrapper">
         <Card title={props.name} bordered={false} style={styles.container}>
           <p>$ {props.envBalance} </p>

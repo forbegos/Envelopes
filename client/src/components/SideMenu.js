@@ -8,7 +8,6 @@ import Envcard from "./Envcard";
 
 // import { render } from "react-dom";
 
-
 const { Sider } = Layout;
 // const { SubMenu } = Menu;
 
@@ -17,7 +16,6 @@ function SideMenu() {
   //   const user = data?.singleUser || [];
   const { loading, data } = useQuery(QUERY_ENVELOPES);
   const envelope = data?.envelopes || [];
-
 
   const handleClick = (event) => () => {
     console.log(event);
@@ -28,13 +26,12 @@ function SideMenu() {
     const envBalance = event.envBalance;
     console.log(envBalance);
 
-    return <Envcard name={name} envBalance={envBalance} />;
+    return (
+      <div className="cardWrapper">
+        <Envcard />
+      </div>
+    );
   };
-
-
-  
-
-   
 
   return (
     <Sider

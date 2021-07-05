@@ -3,13 +3,10 @@ import { Card, Modal, Button, Input } from "antd";
 import { useQuery, useMutation } from "@apollo/client";
 import "antd/dist/antd.css";
 import { QUERY_ENVELOPES } from "../utils/queries";
-import Sidemenu from "./SideMenu";
 
-function Envcard() {
+function Envcard(props) {
   // const { loading, data } = useQuery(QUERY_ENVELOPES);
   // const envelope = data?.envelopes || [];
-
-  const { name, envBalance } = { ...Sidemenu };
 
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -33,8 +30,8 @@ function Envcard() {
   return (
     <>
       <div className="cardWrapper">
-        <Card title={name} bordered={false} style={styles.container}>
-          <p>$ {envBalance} </p>
+        <Card title={props.name} bordered={false} style={styles.container}>
+          <p>$ {props.envBalance} </p>
           <Button type="primary" onClick={showModal} style={{ margin: "10px" }}>
             Start Transaction
           </Button>

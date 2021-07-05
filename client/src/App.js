@@ -1,23 +1,16 @@
-import React, { Component } from "react";
-import { useQuery, useMutation } from "@apollo/client";
+import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 // import { useParams, Link } from "react-router-dom";
 // import { Provider } from "react-redux";
 import { Layout, Menu } from "antd";
 import "antd/dist/antd.css";
 import "./App.css";
-import { QUERY_ENVELOPES } from "./utils/queries";
 
-// import store from "./store";
-import Navbar from "./Navbar";
-// import Landing from "./layout/Landing";
 import Register from "./Register";
 import Login from "./Login";
-import Envcard from "./components/Envcard";
 import SideMenu from "./components/SideMenu";
-import { fixControlledValue } from "antd/lib/input/Input";
-import { render } from "react-dom";
-const { Header, Footer, Content } = Layout;
+import Homepage from "./components/Homepage";
+const { Header, Footer } = Layout;
 
 function App() {
   return (
@@ -33,16 +26,10 @@ function App() {
               </div>
             </Menu>
           </Header>
-
           <Layout>
-            <SideMenu />
-            <Layout>
-              <Content className="content">
-                <Envcard />
-              </Content>
-            </Layout>
+            {/* <SideMenu /> */}
+            <Homepage />
           </Layout>
-
           <Footer className="footer" style={{ textAlign: "center" }}>
             FOOTER
           </Footer>

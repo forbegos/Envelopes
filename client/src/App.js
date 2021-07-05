@@ -19,10 +19,12 @@ function App() {
     <Router>
       <div className="App">
         <Layout>
+
           <Header className="header" style={{ textAlign: "right" }}></Header>
           <Layout>
             {/* <SideMenu /> */}
             <Homepage />
+
           </Layout>
 
           <Footer className="footer" style={{ textAlign: "center" }}>

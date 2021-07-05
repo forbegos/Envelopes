@@ -77,7 +77,7 @@ export default function Envcard(props) {
       <div className="cardWrapper">
         <Card title={props.name} bordered={false} style={styles.container}>
           <p>$ {props.balance} </p>
-          <Button type="primary" onClick={showModal} style={{ margin: "10px" }}>
+          <Button type="primary" onClick={showModal} style={{ margin: "10px"}}>
             Add Transaction
           </Button>
           {/* <Button type="primary" onClick={removeEnv} style={{ margin: "10px" }}>

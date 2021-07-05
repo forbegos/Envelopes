@@ -1,22 +1,17 @@
-import React, { Component } from "react";
-import { useQuery, useMutation } from "@apollo/client";
+import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 // import { useParams, Link } from "react-router-dom";
 // import { Provider } from "react-redux";
-import { Layout, Menu } from "antd";
+import { Layout} from "antd";
 import "antd/dist/antd.css";
 import "./App.css";
-import { QUERY_ENVELOPES } from "./utils/queries";
+import Homepage from "./components/Homepage";
 
-// import store from "./store";
-import Navbar from "./Navbar";
-// import Landing from "./layout/Landing";
-import Register from "./Register";
-import Login from "./Login";
-import Envcard from "./components/Envcard";
-import SideMenu from "./components/SideMenu";
-import { fixControlledValue } from "antd/lib/input/Input";
-import { render } from "react-dom";
+// import Register from "./Register";
+// import Login from "./Login";
+// import SideMenu from "./components/SideMenu";
+
+// import Envcard from "./components/Envcard";
 const { Header, Footer, Content } = Layout;
 
 function App() {
@@ -24,26 +19,12 @@ function App() {
     <Router>
       <div className="App">
         <Layout>
-          <Header className="header" style={{ textAlign: "right" }}>
-            <Menu className="headerMenu" theme="dark" mode="horizontal">
-              <div className="navLinks">
-                {/* <Route exact path="/" component={SideMenu} /> */}
-                {/* <Route exact path="/register" component={Register} /> */}
-              </div>
-            </Menu>
-          </Header>
 
+          <Header className="header" style={{ textAlign: "right" }}></Header>
           <Layout>
-            <Layout>
-              <Content className="content">
-                <Route exact path="/login">
-                  <Login />
-                </Route>
-                <Route exact path="/register">
-                  <Register />
-                </Route>
-              </Content>
-            </Layout>
+            {/* <SideMenu /> */}
+            <Homepage />
+
           </Layout>
 
           <Footer className="footer" style={{ textAlign: "center" }}>

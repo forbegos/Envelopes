@@ -1,16 +1,10 @@
-import React from 'react';
-import '../utils/App.css';
+import React from "react";
+import "../App.css";
 
-const styles = {
+const styles = {};
 
+function Footer1() {
+  return <footer>Envelopes LLC 2021</footer>;
 }
 
-function Footer() {
-    return (
-        <footer>
-            Envelopes LLC 2021
-        </footer>
-    );
-}
-
-export default Footer;
+export default Footer1;

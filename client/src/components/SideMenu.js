@@ -1,36 +1,21 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { useQuery } from "@apollo/client";
 import { Layout, Menu } from "antd";
 import "antd/dist/antd.css";
-import { QUERY_ENVELOPES, QUERY_SINGLE_USER } from "../utils/queries";
+import { QUERY_ENVELOPES } from "../utils/queries";
 import Envcard from "./Envcard";
-// import "./App.css";
-
-// import { render } from "react-dom";
 
 const { Sider } = Layout;
-// const { SubMenu } = Menu;
 
 function SideMenu() {
-  //   const { userData } = useQuery(QUERY_SINGLE_USER);
-  //   const user = data?.singleUser || [];
   const { loading, data } = useQuery(QUERY_ENVELOPES);
   const envelope = data?.envelopes || [];
+  const [envelopeName, setEnvelopeName] = useState("");
+  const [envelopeBalance, setEnvelopeBalance] = useState("");
 
   const handleClick = (event) => () => {
-    console.log(event);
-    const name = event.name;
-    console.log(name);
-    // const id = event.id;
-    // console.log(id);
-    const envBalance = event.envBalance;
-    console.log(envBalance);
-
-    return (
-      <div className="cardWrapper">
-        <Envcard />
-      </div>
-    );
+    setEnvelopeName(event.name);
+    setEnvelopeBalance(event.envBalance);
   };
 
   return (
@@ -60,6 +45,7 @@ function SideMenu() {
           </Menu.Item>
         ))}
       </Menu>
+      <Envcard name={envelopeName} balance={envelopeBalance} />
     </Sider>
   );
 }

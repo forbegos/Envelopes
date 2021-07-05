@@ -43,7 +43,7 @@
 }
 
 .footer {
-  position: sticky;
+  /* position: absolute; */
   line-height: 1.5;
 }
 

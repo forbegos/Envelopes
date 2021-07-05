@@ -1,5 +1,17 @@
 import { gql } from "@apollo/client";
 
+export const LOGIN_USER = gql`
+  mutation login($email: String!, $password: String!) {
+    login(email: $email, password: $password) {
+      token
+      user {
+        _id
+        name
+      }
+    }
+  }
+`;
+
 //add a user
 export const ADD_USER = gql`
   mutation addUser($name: String!, $email: String!, $password: String!) {
@@ -45,16 +57,21 @@ export const ADD_ACCOUNT_TRANSACTION = gql`
     $name: String!
     $amount: Float!
     $type: Boolean!
-  ) addAccountTransaction(accountId: $accountId, name: $name, amount: $amount, type: $type){
-    transactions {
-      amount
-      name
-      type
+  ) {
+    addAccountTransaction(
+      accountId: $accountId
+      name: $name
+      amount: $amount
+      type: $type
+    ) {
+      transactions {
+        amount
+        name
+        type
+      }
     }
   }
 `;
-
-//remove an account transaction
 
 //add an envelope transaction
 export const ADD_ENVELOPE_TRANSACTION = gql`
@@ -63,13 +80,20 @@ export const ADD_ENVELOPE_TRANSACTION = gql`
     $name: String!
     $amount: Float!
     $type: Boolean!
-    )addEnvelopeTransaction(accountId: $accountId, name: $name, amount: $amount, type: $type){
-        transactions {
-            amount
-            name
-            type
-        }
+  ) {
+    addEnvelopeTransaction(
+      accountId: $accountId
+      name: $name
+      amount: $amount
+      type: $type
+    ) {
+      transactions {
+        amount
+        name
+        type
+      }
     }
+  }
 `;
 
 //remove an envelope transaction

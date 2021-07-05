@@ -26,7 +26,17 @@ function HomePage() {
 
   return (
     <>
-      <Sider>
+      <Sider
+        className="sider"
+        style={{
+          minHeight: "100vh",
+
+          textAlign: "center",
+          marginLeft: "10px",
+        }}
+        breakpoint="lg"
+        collapsedWidth="0"
+      >
         <Menu>
           {envelope.map(
             (env, key) => (

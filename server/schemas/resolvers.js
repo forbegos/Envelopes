@@ -1,4 +1,5 @@
 const { Account, User, Envelope } = require("../models");
+const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
@@ -34,7 +35,26 @@ const resolvers = {
     // User mutations --------------------------------
 
     addUser: async (parent, args) => {
-      return await User.create(args);
+      const user = await User.create(args);
+      const token = signToken(user);
+      return { user, token };
+    },
+
+    login: async (parent, { email, password }) => {
+      const user = await User.findOne({ email });
+
+      if (!user) {
+        throw new AuthenticationError("No user with this email found!");
+      }
+
+      const correctPw = await user.isCorrectPassword(password);
+
+      if (!correctPw) {
+        throw new AuthenticationError("Incorrect password!");
+      }
+
+      const token = signToken(user);
+      return { token, user };
     },
 
     removeUser: async (parent, { userId }) => {
@@ -57,9 +77,10 @@ const resolvers = {
         { new: true, runValidators: true }
       );
     },
-    // addEnvelope: async (parent, { name }) => {
-    //   return await Envelope.create({ name });
-    // },
+
+    addEnvelope: async (parent, { name }) => {
+      return await Envelope.create({ name });
+    },
 
     removeEnvelope: async (parent, { envelopeId }) => {
       return await Envelope.findOneAndDelete({ _id: envelopeId });

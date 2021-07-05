@@ -2,6 +2,7 @@ import React from "react";
 
 export default function Envcard(props) {
   const cardStyle = {
+    // justifyContent: "center",
     width: "400px",
     padding: "100px",
     border: "blue solid 3px",

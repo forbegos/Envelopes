@@ -4,7 +4,7 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 // import './index.css';
 
 import App from "./App";
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 
 const client = new ApolloClient({
   uri: "/graphql",

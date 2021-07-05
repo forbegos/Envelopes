@@ -1,7 +1,15 @@
 import React, { useState } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_ENVELOPES } from "../utils/queries";
+import Register from "../Register";
+import Login from "../Login";
 import Envcard from "./Envcard";
+import "antd/dist/antd.css";
+
+import { Layout, Menu, Button } from "antd";
+const { Sider, Content } = Layout;
+// import "antd/dist/antd.css";
 
 function HomePage() {
   const { loading, data } = useQuery(QUERY_ENVELOPES);
@@ -17,21 +25,35 @@ function HomePage() {
   };
 
   return (
-    <div>
-      <div>
-        {envelope.map(
-          (env, key) => (
-            (key = { key }),
-            (
-              <button type="button" onClick={handleFormSubmit(env)}>
-                {env.name}
-              </button>
+    <>
+      <Sider>
+        <Menu>
+          {envelope.map(
+            (env, key) => (
+              (key = { key }),
+              (
+                <Button type="primary" onClick={handleFormSubmit(env)} block>
+                  {env.name}
+                </Button>
+              )
             )
-          )
-        )}
-      </div>
-      <Envcard name={envelopeName} balance={envelopeBalance} />
-    </div>
+          )}
+        </Menu>
+      </Sider>
+      <Layout>
+        <Content className="content">
+          <Route exact path="/login">
+            <Login />
+          </Route>
+          <Route exact path="/register">
+            <Register />
+          </Route>
+          <Route exact path="/">
+            <Envcard name={envelopeName} balance={envelopeBalance} />
+          </Route>
+        </Content>
+      </Layout>
+    </>
   );
 }
 

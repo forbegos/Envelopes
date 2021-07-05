@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Card, Modal, Button, Input } from "antd";
-import { useQuery, useMutation } from "@apollo/client";
+
 import "antd/dist/antd.css";
-import { QUERY_ENVELOPES } from "../utils/queries";
+
 export default function Envcard(props) {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const showModal = () => {
@@ -72,15 +72,17 @@ export default function Envcard(props) {
     //   </div>
     // </div>
     <>
+      {/* <p>{props.name}</p>
+      <p>{props.envBalance}</p> */}
       <div className="cardWrapper">
         <Card title={props.name} bordered={false} style={styles.container}>
           <p>$ {props.balance} </p>
           <Button type="primary" onClick={showModal} style={{ margin: "10px" }}>
-            Start Transaction
+            Add Transaction
           </Button>
-          <Button type="primary" onClick={removeEnv} style={{ margin: "10px" }}>
+          {/* <Button type="primary" onClick={removeEnv} style={{ margin: "10px" }}>
             Remove Envelope
-          </Button>
+          </Button> */}
           {/* {MODAL  NEED TO ADD FUNCTIONALITY TO DEPOSIT AND WITHDRAWAL} */}
           <Modal
             title="Transaction"

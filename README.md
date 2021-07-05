@@ -20,8 +20,9 @@ Envelopes is a service that allows you to keep track of your budget using virtua
 
 # Credits
 Fernando de Orbegoso - https://github.com/forbegos
+Kevin Wesley - https://github.com/KevinJWesley
 Tiffany Lovett - https://github.com/purpleamaranth
-Kevin Wesley - https://github.com/
-Mason Weiner - https://github.com/
+Mason Weiner - https://github.com/masonweiner
+Ezequiel Herrera - https://github.com/Chequelito
 
 # APIs used:

@@ -29,6 +29,9 @@ function App() {
         <Layout>
           <Header className="header" style={{ textAlign: "right" }}>
             <Menu className="headerMenu" theme="dark" mode="horizontal">
+              <div className="logoImage">
+                
+              </div>
               {Auth.loggedIn() ? (
                 <button className="btn btn-lg btn-light m-2" onClick={logout}>
                   Logout

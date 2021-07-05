@@ -78,11 +78,11 @@ export default function Envcard(props) {
         <Card title={props.name} bordered={false} style={styles.container}>
           <p>$ {props.balance} </p>
           <Button type="primary" onClick={showModal} style={{ margin: "10px" }}>
-            Start Transaction
+            Add Transaction
           </Button>
-          <Button type="primary" onClick={removeEnv} style={{ margin: "10px" }}>
+          {/* <Button type="primary" onClick={removeEnv} style={{ margin: "10px" }}>
             Remove Envelope
-          </Button>
+          </Button> */}
           {/* {MODAL  NEED TO ADD FUNCTIONALITY TO DEPOSIT AND WITHDRAWAL} */}
           <Modal
             title="Transaction"

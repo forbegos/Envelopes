@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_ENVELOPES } from "../utils/queries";
 import Register from "../Register";
@@ -9,10 +9,9 @@ import "antd/dist/antd.css";
 
 import { Layout, Menu, Button } from "antd";
 const { Sider, Content } = Layout;
-// import "antd/dist/antd.css";
 
 function HomePage() {
-  const { loading, data } = useQuery(QUERY_ENVELOPES);
+  const { data } = useQuery(QUERY_ENVELOPES);
   const envelope = data?.envelopes || [];
   console.log(envelope);
 

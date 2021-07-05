@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Card, Modal, Button, Input } from "antd";
-import { useQuery, useMutation } from "@apollo/client";
+
 import "antd/dist/antd.css";
-import { QUERY_ENVELOPES } from "../utils/queries";
+
 export default function Envcard(props) {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const showModal = () => {

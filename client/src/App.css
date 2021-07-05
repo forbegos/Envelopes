@@ -44,7 +44,11 @@
 
 .footer {
   /* position: absolute; */
-  line-height: 1.5;
+  /* line-height: 1.5; */
+  margin-bottom: 0 fixed;
+  height: 50px;
+  background-color: rgb(29, 29, 56);
+  color: white;
 }
 
 /* media queries */

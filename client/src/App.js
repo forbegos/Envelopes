@@ -8,8 +8,13 @@ import "./App.css";
 import Homepage from "./components/Homepage";
 import "./Register";
 import Login from "./Login";
+
 import Auth from "./utils/auth";
 import Register from "./Register";
+
+
+import Footer1 from "./components/Footer";
+
 
 // import Register from "./Register";
 // import Login from "./Login";
@@ -63,7 +68,7 @@ function App() {
             </Switch>
           </Layout>
           <Footer className="footer" style={{ textAlign: "center" }}>
-            FOOTER
+            <Footer1 />
           </Footer>
         </Layout>
       </div>

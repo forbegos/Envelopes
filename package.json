@@ -10,7 +10,8 @@
     "start": "concurrently \"cd server && npm start\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
     "seed": "cd server && npm run seed",
-    "build": "cd client && npm run build"
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "keywords": [],
   "author": "Ezequiel Herrera, Kevin Wesley, Mason Wiener, Tiffany Lovett, Fernando de Orbegoso",

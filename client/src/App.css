@@ -3,16 +3,29 @@
   padding: 0;
 }
 
+body {
+  background: rgb(228, 224, 224);
+}
+
 .code-box-demo {
   text-align: center;
 }
 
 .header {
   position: sticky;
+  display: flex;
 }
 
 .headerMenu {
   top: 0;
+  align-items: center;
+  justify-content: space-between;
+}
+.title h4 {
+  color: seashell;
+}
+.btn {
+  margin: 10px;
 }
 .navLinks {
   margin: 10px;

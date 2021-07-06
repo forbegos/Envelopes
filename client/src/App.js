@@ -43,8 +43,8 @@ function App() {
                   </Link>
                 </>
               )}
-              <div className="logoImage">
-                <img src="    images/logo.png"></img>
+              <div className="title">
+                <h4>envelopes</h4>
               </div>
             </Menu>
           </Header>

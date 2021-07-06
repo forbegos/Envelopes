@@ -25,7 +25,7 @@
 
 .sider {
   width: 200px;
-  background-color: white;
+  background: rgb(228, 224, 224);
 
   line-height: 120px;
 }
@@ -38,7 +38,7 @@
   align-items: center;
   justify-content: center;
 
-  background: white;
+  background: rgb(228, 224, 224);
 }
 
 .cardWrapper {

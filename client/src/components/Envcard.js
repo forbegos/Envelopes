@@ -49,7 +49,7 @@ export default function Envcard(props) {
   const styles = {
     container: {
       flex: 1,
-      backgroundColor: "#ddd",
+      backgroundColor: "white",
       width: "400px",
       opacity: "80%",
       overflow: "inherit",

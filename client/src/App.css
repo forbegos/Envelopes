@@ -3,18 +3,31 @@
   padding: 0;
 }
 
+body {
+  background: rgb(228, 224, 224);
+}
+
 .code-box-demo {
   text-align: center;
 }
 
 .header {
   position: sticky;
+  display: flex;
 }
 
 .headerMenu {
   top: 0;
+  align-items: center;
+  justify-content: space-between;
 }
-.navLinks a {
+.title h4 {
+  color: seashell;
+}
+.btn {
+  margin: 10px;
+}
+.navLinks {
   margin: 10px;
   display: inline;
   text-decoration: none;
@@ -25,17 +38,20 @@
 
 .sider {
   width: 200px;
-  margin-top: 20px;
+  background: rgb(228, 224, 224);
+
   line-height: 120px;
+}
+.sideButtons {
+  justify-content: space-between;
 }
 
 .content {
-  display: flex;
   padding: 30px;
   align-items: center;
   justify-content: center;
 
-  background: white;
+  background: rgb(228, 224, 224);
 }
 
 .cardWrapper {
@@ -43,12 +59,8 @@
 }
 
 .footer {
-  /* position: absolute; */
-  /* line-height: 1.5; */
-  margin-bottom: 0 fixed;
-  height: 50px;
-  background-color: rgb(29, 29, 56);
-  color: white;
+  position: sticky;
+  line-height: 1.5;
 }
 
 /* media queries */

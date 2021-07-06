@@ -15,7 +15,7 @@
   "keywords": [],
   "author": "Ezequiel Herrera, Kevin Wesley, Mason Wiener, Tiffany Lovett, Fernando de Orbegoso",
   "license": "MIT",
-  "Dependencies": {
+  "dependencies": {
     "concurrently": "^5.1.0"
   }
 }

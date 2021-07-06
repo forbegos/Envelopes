@@ -14,7 +14,7 @@
 .headerMenu {
   top: 0;
 }
-.navLinks a {
+.navLinks {
   margin: 10px;
   display: inline;
   text-decoration: none;
@@ -25,12 +25,15 @@
 
 .sider {
   width: 200px;
-  margin-top: 20px;
+  background-color: white;
+
   line-height: 120px;
+}
+.sideButtons {
+  justify-content: space-between;
 }
 
 .content {
-  display: flex;
   padding: 30px;
   align-items: center;
   justify-content: center;
@@ -43,7 +46,7 @@
 }
 
 .footer {
-  /* position: absolute; */
+  position: sticky;
   line-height: 1.5;
 }
 

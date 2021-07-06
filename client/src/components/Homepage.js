@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Route, Link } from "react-router-dom";
+import { Route, Link, withRouter } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_ENVELOPES } from "../utils/queries";
 import Register from "../Register";
@@ -31,25 +31,25 @@ function HomePage() {
           <Sider
             className="sider"
             style={{
-              minHeight: "100vh",
+              minHeight: "80vh",
               textAlign: "center",
               marginLeft: "10px",
             }}
             breakpoint="lg"
             collapsedWidth="0"
           >
-            <Menu>
+            <Menu className="sideMenu" theme="dark">
               {envelope.map(
                 (env, key) => (
                   (key = { key }),
                   (
-                    <Button
-                      type="primary"
+                    <Menu.Item
+                      className="sideButtons"
                       onClick={handleFormSubmit(env)}
                       block
                     >
                       {env.name}
-                    </Button>
+                    </Menu.Item>
                   )
                 )
               )}

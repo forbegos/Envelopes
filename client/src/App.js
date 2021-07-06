@@ -44,7 +44,7 @@ function App() {
                 </>
               )}
               <div className="logoImage">
-                <img src="images/logo.png"></img>
+                <img src="    images/logo.png"></img>
               </div>
             </Menu>
           </Header>

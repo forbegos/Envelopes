@@ -71,7 +71,7 @@ function HomePage() {
         </>
       ) : (
         <>
-          <Link to="/login">You are not logged in! Press here to start</Link>
+          <p>Click Login or Register to get started.</p>
         </>
       )}
     </>
